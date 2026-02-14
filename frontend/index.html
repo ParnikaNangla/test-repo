@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSE Derivatives - Open Interest Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 NSE Derivatives Tracker</h1>
+            <p>Real-time Open Interest Analysis</p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <label for="instrumentSelect">Select Instrument:</label>
+                <select id="instrumentSelect">
+                    <option value="">-- Choose Derivative --</option>
+                    <option value="NIFTY">NIFTY</option>
+                    <option value="BANKNIFTY">BANKNIFTY</option>
+                    <option value="FINNIFTY">FINNIFTY</option>
+                    <option value="RELIANCE">RELIANCE</option>
+                    <option value="TCS">TCS</option>
+                    <option value="INFY">INFY</option>
+                </select>
+
+                <button id="fetchButton" class="btn-primary">
+                    Get Open Interest
+                </button>
+            </div>
+
+            <div id="loadingIndicator" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Fetching data...</p>
+            </div>
+
+            <div id="errorMessage" class="error hidden"></div>
+
+            <div id="results" class="results-container hidden">
+                <h2 id="instrumentName"></h2>
+                <div class="data-grid">
+                    <div class="data-card">
+                        <h3>Open Interest</h3>
+                        <p id="openInterest" class="value">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>Change in OI</h3>
+                        <p id="oiChange" class="value">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>Current Price</h3>
+                        <p id="currentPrice" class="value">-</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>PCR Ratio</h3>
+                        <p id="pcrRatio" class="value">-</p>
+                    </div>
+                </div>
+
+                <div class="options-chain">
+                    <h3>Options Chain Summary</h3>
+                    <table id="optionsTable">
+                        <thead>
+                            <tr>
+                                <th>Strike Price</th>
+                                <th>Call OI</th>
+                                <th>Put OI</th>
+                                <th>PCR</th>
+                            </tr>
+                        </thead>
+                        <tbody id="optionsTableBody">
+                            <!-- Data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Data updates every 5 minutes | Mock data for Week 1</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
